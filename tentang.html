@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="script.js"></script>
+    <title>Deltaa Sport</title>
+    <style>
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-size: cover;
+            line-height: 1.6;
+            background-image: url(pexels-furknsaglam-3131405.jpg);
+        }
+
+        header {
+            height: 300px;
+            background: url(pexels-pixabay-163444.jpg) center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #1e1918;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        article {
+            display: block;
+            margin-bottom: 0;
+            backdrop-filter: blur(25px);
+            background-color: transparent;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensure consistent article height */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+        .article {
+            display: none;
+            }
+
+        .article.active {
+            display: block;
+            }
+
+        article img {
+            width: 40%;
+            height: auto;
+            margin: 0px 0px 0px 30%;
+            padding: 10px;
+            border-radius: 8px 0 0 8px;
+            box-shadow: rgba(0,0,0,0.4);
+            margin-bottom: 1px;
+        }
+
+        article div {
+            flex: 1;
+            padding: 1.5em;
+        }
+
+        article h2 {
+            color: #ffffff;
+            font-size: 1.8em;
+            margin-bottom: 0.5em;
+            text-align: center;
+            margin-top: 1px;
+        }
+
+        article h4 {
+            color: yellow;
+        }
+
+        article p {
+            color: #ffffff;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+            word-wrap: break-word;
+        }
+
+        .judulsub {
+            margin-left: 6px;
+            margin-bottom: 6px;
+        }
+        .judulsubbab {
+            margin-left: 25px;
+            margin-bottom: 2px;
+            margin-top: 1px;
+            font-weight: bolder;
+        }
+        .isisubbab {
+            margin-left: 25px;
+            margin-top: 6px;
+        }
+        ol {
+            color: #ffffff;
+            list-style-type: decimal; /* Jenis penomoran (angka) */
+            margin-bottom: 1em; /* Jarak antara list dengan elemen sekitarnya */
+            margin-left: 1px;
+        }
+
+        li {
+            line-height: 1.4;
+            text-align: justify;
+            margin-bottom: 0.5em; /* Jarak antara list item (paragraf) */
+        }
+        .read-more-content {
+            max-height: 100px; /* Atur tinggi maksimum untuk teks yang dapat dipendekkan */
+            overflow: hidden;
+            transition: max-height 0.5s ease; /* Animasi perubahan tinggi maksimum */
+        }
+
+        .read-more-toggle {
+            display: block;
+            margin-top: 10px;
+            color: blue;
+            cursor: pointer;
+        }
+
+        /* Style for Back Button */
+        button {
+            margin-bottom: 15px;
+            margin-top: 5px;
+            box-shadow: #222;
+        }
+
+        .back-button {
+            margin-left: 41%;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #3498db; /* Warna latar belakang */
+            color: #fff; /* Warna teks */
+            border: 2px solid #3498db; /* Warna border */
+            border-radius: 5px; /* Rounding border */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s; /* Efek transisi hover */
+        }
+
+        .back-button:hover {
+            background-color: #2980b9; /* Warna latar belakang pada hover */
+            color: #fff; /* Warna teks pada hover */
+        }
+
+        /* Style for Skip Button */
+        #skipButton {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #27ae60; /* Warna latar belakang */
+            color: #fff; /* Warna teks */
+            border: 2px solid #27ae60; /* Warna border */
+            border-radius: 5px; /* Rounding border */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s; /* Efek transisi hover */
+        }
+
+        #skipButton:hover {
+            background-color: #219d54; /* Warna latar belakang pada hover */
+            color: #fff; /* Warna teks pada hover */
+        }
+
+
+        aside {
+            width: 50%;
+            background-color: #333;
+            color: #fff;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-bottom: 10px;
+            margin-left: 35px;
+            background-image: url(wallpaperflare.com_wallpaper\ \(8\).jpg);
+        }
+
+        aside a{
+            text-decoration: none;
+            color: white;
+        }
+        aside a:hover{
+            text-decoration: none;
+            color: yellow;
+        }
+        
+
+        footer {
+            background: #1e1918;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 480px) {
+    article {
+        display: block; /* Change from flex to block for smaller screens */
+        margin-bottom: 1em; /* Adjust margin as needed */
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    article img {
+        width: 100%; /* Set image width to 100% for smaller screens */
+        height: auto;
+        border-radius: 8px 8px 0 0; /* Adjust border-radius as needed */
+    }
+
+    article div {
+        padding: 1em;
+    }
+
+    article h2 {
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 0.5em;
+    }
+
+    article p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 1.5em;
+        word-wrap: break-word;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Deltaa Sport</h1>
+    </header>
+
+    <nav class="navbar navbar-custom navbar-expand-lg">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Deltaa Sport</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="tentang.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <buttona class="btn btn-outline-success" type="submit">Search</buttona>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <main>
+        <div id="article-1" class="article">
+        <article>
+            <img src="voli.jpg" alt="Gambar Artikel 1" class="gamm">
+            <div>
+                <h2>Bola Volly</h2>
+                <p>Ditemukan oleh William G. Morgan di YMCA pada tanggal 9 Februari 1895. 
+                    Bola voli adalah olahraga tim yang dimainkan antara dua tim yang masing-masing terdiri dari enam pemain. Tujuan dari permainan ini adalah untuk mencetak skor dengan cara memasukkan bola ke dalam area lawan dan mencegah lawan untuk melakukannya.
+                    Berikut adalah beberapa keterangan mengenai bola voli:</p>
+                 <h4 class="judulsub">A.  Aturan Permainan</h4>
+                 <p class="judulsubbab"> - Perhitungan angka -</p>
+                 <ol>
+                    <li>Jika pihak musuh memasukkan bola ke dalam daerah kita maka kita kehilangan bola dan musuh mendapatkan nilai.</li>
+                    <li>Serve yang dilakukan harus melewati net dan masuk ke daerah musuh. Jika tidak, maka musuh akan mendapatkan nilai.</li>
+                </ol>   
+                 <p class="judulsubbab"> - Sistem Pertandingan -</p>
+                 <ol>
+                    <li>Sistem pertandingan memakai sistem setengah kompetisi yang terdiri dari 8 tim dan akan disitribusikan ke dalam 2 (dua) group, masing-masing group terdiri atas 4 (empat) tim.</li>
+                    <li>Setiap tim terdiri dari 10 pemain dan 6 pemain inti yang bermain di lapangan sedangkan 4 pemain cadangan.</li>
+                    <li>Pergantian pemain inti dan cadangan saat pertandingan berlangsung bebas tak dibatasi.</li>
+                    <li>Pertandingan tak akan ditunda jika salah satu atau lebih dari satu anggota tim sedang bermain untuk cabang olahraga yang lain.</li>
+                    <li>Jumlah pemain minimum yang boleh bermain di lapangan yaitu 4 orang.</li>
+                    <li>Jika di lapangan terdapat kurang dari 4 orang, maka tim yang bersangkutan dianggap kalah.</li>
+                    <li>Setiap pertandingan berlangsung 3 babak, kecuali pada 2 babak sudah di pastikan pemenangnya maka babak ke tiga tak perlu dilaksanakan.</li>
+                    <li>Sistem hitungan yang dipakai adalah 25 rally point. Bila poin sama (24-24) maka pertandingan akan ditambah dengan 2 poin. Peserta yg pertama kali unggul dengan selisih 2 poinlah yang akan memenangi pertandingan.</li>
+                    <li>Kemenangan pertandingan penyisihan mendapat nilai 1. Jika ada dua tim atau lebih mendapat nilai sama, maka penentuan juara group dan runner-up akan dilihat dari kualitas angka pada tiap set yang dimainkan.</li>
+                </ol>
+                <p class="judulsubbab"> - Pelanggaran -</p>
+                <ol>
+                    <li>Pemain menyentuh net atau melewati garis tengah lapangan lawan.</li>
+                    <li>Dilarang melempar ataupun menangkap bola. Bola voli wajib di pantulkan tanpa terkena lantai atau dasar lapangan.</li>
+                    <li>Bola yang dipantulkan keluar dari lapangan belum dihitung sebagai out sebelum akhirnya menyentuh permukaan lapangan.</li>
+                    <li>Pada saat servis bola yang melewati lapangan dihitung sebagai poin bagi lawan, begitu juga sebaliknya penerima servis lawan yang membuat bola keluar akan dihitung sebagai poin bagi lawan.</li>
+                    <li>Seluruh pemain harus ada dalam lapangan pada saat serve dilakukan.</li>
+                    <li>Pemain melakukan spike di atas lapangan lawan.</li>
+                    <li>Seluruh bagian tubuh legal untuk memantulkan bola terkecuali dengan cara menendang atau menggunakan kaki.</li>
+                    <li>Para pemain dan lawan mengenai net 2 kali saat memainkan bola dihitung sebagai double faults.</li>
+                    <li>Setiap tim diwajibkan bertukar sisi lapangan setiap babak berakhir. Dan jika dilakukan babak penetuan (set ke 3) maka tim yang mempunyai nilai terendah boleh meminta bertukar lapangan sesaat setelah tim lawan mencapai angka 13.</li>
+                    <li>Time out dilakukan hanya satu kali pada tiap babak dan berlangsung hanya 1 menit.</li>
+                    <li>Di luar dari aturan yang ada disini, peraturan permainan mengikuti peraturan internasional.</li>
+                </ol>
+                <!-- alkslakslak -->
+                <h4 class="judulsub">B.  Teknik Dasar Bola Voly</h4>
+                <p class="judulsubbab"> - Servis -</p>
+                <p class="isisubbab">Servis pada sat ini bukan lagi sebagai awal dari suatu permainan atau sekedar menyajikan bola, tetapi sebagai suatu serangan pertama bagi tim yang melakukan servis. Servis terdiri dari dari dua jenis yaitu servis tangan bawah dan servis tangan atas. Servis tangan atas dibedakan menjadi dua jenis yaitu tennis servis, floating dan cekis.</p>
+                
+                <p class="judulsubbab"> - Smash/Spike -</p>
+                <p class="isisubbab">Membentuk serangan pukulan yang keras saat bola berada di atas jaring untuk di masukkan ke daerah lawan. Untuk melakukan dengan baik perlu memperhatikan awalan, tolakan, pukulan, serta pendaratan. Teknik pada permainan bola voli bisa diartikan sebagai cara memainkan bola dengan efisien dan efektif sesuai peraturan permainan yang berlaku untuk mencapai suatu hasil yang optimal. Smash merupakan suatu pukulan yang kuat saat tangan kontak dengan bola secara penuh pada bagian atas, hingga jalannya bola terjal dengan kecepatan yang tinggi, jika pukulan bola lebih tinggi berada di atas net, maka bola bisa dipukul tajam ke bawah. Smash adalah pukulan keras yang biasanya mematikan karena bola sulit diterima ataupun dikembalikan.</p>
+                
+                <p class="judulsubbab"> - Blok -</p>
+                <p class="isisubbab">Blok pada permainan bola voli yaitu sebuah usaha membendung serangan lawan yang berupa smash agar tak menghasilkan poin. Dengan daya upaya di dekat jaring untuk mencoba menahan ataupun menghalangi bola yang datang dari daerah lawan.</p>
+                <!-- asdsadasdasd -->
+
+                <h4 class="judulsub">C.  Sarana Dan Prasarana</h4>
+                <p class="judulsubbab"> - Lapangan -</p>
+                <p class="isisubbab">Ukuran lapangan bola voli yang adalah 9 m x 18 m. Garis batas serang untuk pemain belakang memiliki jarak 3 meter dari garis tengah . Garis tepi lapangan sepanjang 5 meter.</p>
+                
+                <p class="judulsubbab"> - Bola -</p>
+                <p class="isisubbab">Bola memiliki keliling lingkaran 65 sampai 67 cm, berat bola 260 hingga 280 gram. Tekanan dari bola sekitar 0.30 hingga 0.325 kg/cm2 (4.26-4.61 psi, 294.3-318.82 mbar atau hPa).</p>
+                
+                <p class="judulsubbab"> - Net -</p>
+                <p class="isisubbab">Ukuran tinggi net putra 2,43 m sedangkan untuk net putri 2,24 m.</p>
+            
+            </div>
+        </article>
+        </div>
+
+        <div id="article-2" class="article">
+        <article>
+            <img src="judo.jpg" alt="Gambar Artikel 1" class="gamm">
+            <div>
+                <h2>Judo</h2>
+                <p>Judo diciptakan pada tahun 1882 dengan menggabungkan seni bela diri Jepang sebelumnya, jujitsu dengan disiplin mental. Sementara jujitsu berakar pada olahraga sumo yang memiliki sejarah sangat panjang.
+                    Sumo sudah disebutkan pada Nihon Shoki, sebuah dokumen dari tahun 720 M yang mencertiakan sejarah Jepang pada zaman mitos para dewa sampai zaman permaisuri Jito.</p>
+                <p>Kata judo berasal dari dua kata Jepang, yaitu "ju" yang artinya lembut dan "do" yang berarti jalan. Secara harfiah, judo adalah jalan kelemahlembutan. Namun, lemah lembut di sini bukan berarti gerakan-gerakan judo dilakukan dengan perlahan dan lemah.
+                    Pada dasarnya, teknik-tenik judo membantu orang-orang untuk mencapai kebugaran fisik dasarnya. Contohnya mengembangkan kekuatan, kecepatan, fleksibilitas, kelincahan, keseimbangan, dan daya tahan.</p>
+                 <h4 class="judulsub">A.  Tujuan Judo</h4>
+                 <p class="isisubbab">Judo memiliki tujuan utama, yaitu mengembangkan spiritual atau jiwa yang positif, menumbuhkan fisik dan kebugaran jasmani, dan membela diri dari bahaya. Selain itu, judo juga memiliki sejumlah manfaat, baik secara fisik maupun mental. Berikut di antaranya:</p>
+                 <p class="judulsubbab"> - Manfaat Fisik -</p>
+                 <ol>
+                    <li>Melatih sistem pernapasan</li>
+                    <li>Membantu membakar kalori</li>
+                    <li>Membantu sistem kardiovaskular bekerja lebih baik</li>
+                    <li>Mengencangkan otot-otot</li>
+                    <li>Meningkatkan keseimbangan tubuh dan elastisitas otot</li>
+                </ol>   
+                 <p class="judulsubbab"> - Manfaat Mental -</p>
+                 <ol>
+                    <li>Melepaskan perasaan negatif</li>
+                    <li>Meningkatkan harga dir</li>
+                    <li>Meningkatkan pembelajaran psikomotorik</li>
+                    <li>Mendorong rasa hormat terhadap diri sendiri maupun orang lain</li>
+                    <li>Menghilangkan rasa takut</li>
+                </ol>
+                
+                <!-- alkslakslak -->
+                <h4 class="judulsub">B.  Teknik Judo</h4>
+                <p class="judulsubbab"> - Teknik Sikap Berdiri -</p>
+                <ol>
+                    <li>Posisi badan berdiri tegak.</li>
+                    <li>Posisi badan sedikit bungkukkan ke depan sebelum memulai pertandingan.</li>
+                </ol>
+                
+                <p class="judulsubbab"> - Teknik Sikap Bertahan -</p>
+                <ol>
+                    <li>Tubuh berdiri tegak sambil menekuk lutut dan merendahkan panggul.</li>
+                    <li>Posisi tubuh jigo-hotai, yaitu berdiri tegak dengan kedua kaki dibuka kurang lebih 50 cm, menekuk kedua lutut dan pusat gravitasi ada di tengah.</li>
+                    <li>Posisi tubuh migi-jigota, yaitu seperti sikap jigo-hotai dan ditambah gerakan kaki kanan yang sedikit maju ke depan.</li>
+                    <li>Posisi tubuh hidari-jigotai, yaitu sikap seperti jigo-hotai dan ditambah gerakan kaki kiri sedikit ke depan.</li>
+                </ol>
+
+                <p class="judulsubbab"> - Teknik Langkah -</p>
+                <ol>
+                    <li>Posisi telapak kaki menempel pada lantai dan tidak boleh diangkat dengan kaki agak menyeret.</li>
+                    <li>Kaki melangkah ke depan, belakang, kiri, maupun kanan.</li>
+                </ol>
+                <!-- asdsadasdasd -->
+
+                <p class="judulsubbab"> - Teknik Penghormatan / rei -</p>
+                <ol>
+                    <li>Sikap Berdiri</li>
+                    <li>Sikap Bertahan</li>
+                    <li>Sikap Langkah</li>
+                </ol>
+                <!-- asdsadasdasd -->
+
+                <p class="judulsubbab"> - Teknik Kuda Kuda / shizen -</p>
+                <ol>
+                    <li>Migi ligotai, yaitu kuda-kuda bertahan kanan</li>
+                    <li>Migi sizentai, yaitu kuda-kuda kanan</li>
+                    <li>Higari jigota, kuda-kuda bertahan kiri</li>
+                    <li>Ligo hontai, kuda-kuda bertahan tengah</li>
+                    <li>Hidari shezentai, kuda-kuda kiri</li>
+                    <li>Shizen hontai, kuda-kuda tengah</li>
+                </ol>
+
+                <!-- asdsadasdasd -->
+
+                <p class="judulsubbab"> - Teknik Serangan -</p>
+                <ol>
+                    <li>De ashi harai, yaitu teknik bantingan atau menyapu kaki lawan.</li>
+                    <li>Uki goshi, teknik bantingan atau dengan cara melempar pinggang.</li>
+                    <li>Osoto gari, teknik bantingan atau dengan menyabit bagian belakang kaki lawan.</li>
+                </ol>
+
+
+                <h4 class="judulsub">C.  Peraturan Judo</h4>
+                <p class="judulsubbab"> - Sistem Penilaian -</p>
+                <p class="isisubbab">Sistem penilaian judo adalah pemain akan mendapatkan poin jika berhasil membanting lawan lebih dulu. Lalu, pemain juga akan mendapatkan poin jika berhasil mengunci lawan atau melakukan kuncian selama 20 detik.</p>
+                
+                <p class="judulsubbab"> - Durasi Pertandingan -</p>
+                <p class="isisubbab">Durasi pertandingan judo berjalan selama 5-20 menit dalam satu kali pertandingan.</p>
+                
+                <p class="judulsubbab"> - Larangan Dalam Pertandingan -</p>
+                <p class="isisubbab">Ada sejumlah larangan dalam pertandingan judo yang harus diketahui pemain, yaitu:</p>
+                <ol>
+                    <li>Menggigit seragam lawan</li>
+                    <li>Menarik rambut lawan</li>
+                    <li>Melepas ikat pinggang lawan</li>
+                    <li>Menyentuh wajah lawan</li>
+                    <li>Membahayakan lawan</li>
+                    <li>Menendang tangan lawan</li>
+                    <li>Mencoba mematahkan jari lawan</li>
+                </ol>
+            
+            </div>
+        </article>
+        </div>
+
+        <div id="article-3" class="article">
+        <article>
+            <img src="basket.jpeg" alt="Gambar Artikel 1" class="gamm">
+            <div>
+                <h2>Bola Basket</h2>
+                <p>Bola basket adalah salah satu cabang olahraga yang dapat dimainkan oleh putra maupun putri, anak-anak maupun dewasa dengan setiap regu terdiri dari 5 orang pemain, lama permainan 2 x 20 menit waktu bersih.
+                    Selama bermain (bertanding) tiap regu berusaha untuk memasukkan bola ke keranjang lawan sebanyak-banyaknya dan regu yang paling banyak memasukkan bola ke dalam keranjang adalah regu yang menang Sastradi, (1986:87).</p>
+                <p>KMuhyi, (2009:46) mengatakan komponen kondisi fisik yang termasuk dalam permainan bola basket adalah kelincahan (agility), keseimbangan (balance), kekuatan (strenghth), kecepatan gerak dan reaksi (speed), daya tahan (endurance), kelentukan (flexibility), koordinasi (coordination).</p>
+
+                 <h4 class="judulsub">A.  Teknik Dasar Bola Basket</h4>
+                 <p class="isisubbab">Pada dasarnya, gerakan yang efisien adalah gerakan yang benar tanpa kehilangan tenaga yang sia-sia. Misalnya pada gerakan mendorong sesuatu, agar efisien, semua otot bekerja ke arah depan, tidak ada otot yang bergerak ke samping, baik otot-otot kaki, paha, badan, lengan dan tangan.
+                    Teknik dasar permainan bola basket antara lain:
+                 </p>
+                 <p class="judulsubbab"> - Teknik Menggiring Bola / Dribbling -</p>
+                 <p class="isisubbab">Menggiring bola adalah salah satu cara yang diperbolehkan oleh peraturan untuk membawa lari bola ke segala arah. Seorang pemain boleh membawa bola lebih dari satu langkah, asal bola sambil dipantulkan baik dengan berjalan maupun berlari.</p>
+                 <p class="isisubbab">Menggiring bola merupakan suatu usaha untuk membawa bola menuju ke depan/lapangan lawan. Cara menggiring bola yang dibenarkan adalah dengan satu tangan (kiri/kanan). Kegunaan menggiring bola adalah untuk mencari peluang serangan, menerobos pertahanan lawan, dan memperlambat tempo permainan.</p>
+
+                 <p class="judulsubbab"> - Teknik Melempar Dan Menanggkap Bola -</p>
+                 <p class="isisubbab">Pada umumnya operan dapat dilakukan dengan cepat, keras, tetapi tidak liar, sehingga dapat dikuasai oleh teman yang akan menerimanya.
+                    Operan dapat dilakukan secara lunak, tetapi akan tergantung pada situasi keseluruhan, yaitu kedudukan situasi teman, timing dan taktik yang digunakan.
+                    Memberi operan tidaklah semudah yang diduga, karena kerasnya lemparan, terlalu rendah atau terlalu tinggi operan akan menyulitkan teman untuk menerima bola.
+                 </p>
+                
+                <!-- alkslakslak -->
+                <h4 class="judulsub">B.  Sarana Dan Prasarana</h4>
+                <p class="isisubbab">Lapangan bola basket berbentuk persegi panjang dengan dua standar ukuran, yakni panjang 28,5 meter dan lebar 15 meter untuk standar National Basketball Association dan panjang 26 meter dan lebar 14 meter, untuk standar Federasi Bola Basket Internasional.</p>
+                <p class="isisubbab">Tiga buah lingkaran yang terdapat di dalam lapangan basket memiliki panjang jari-jari yaitu 1,80 meter, jika bola dijatuhkan dari ketinggian 1,80 meter pada lantai papan, maka bola harus kembali pada ketinggian antara 1,20-1,40 meter, jarak lantai sampai ke papan pantul bagian bawah adalah 2,75 meter.</p>
+                <p class="isisubbab">Sementara jarak papan pantul bagian bawah sampai ke ring basket adalah 0,30 meter, ring basket memiliki panjang yaitu 0,40 meter, sedangkan jarak tiang penyangga sampai ke garis akhir adalah 1 meter.</p>
+                <p class="isisubbab">Panjang garis tengah lingkaran pada lapangan basket adalah 1,80 meter dengan ukuran lebar garis yaitu 0,05 meter. Panjang garis akhir lingkaran daerah serang yaitu 6 meter, sedangkan panjang garis tembakan hukuman yaitu 3,60 meter. Roji, (2007:20). Untuk lebih jelasnya ikuti tautan berikut ini.</p>
+                 
+                
+            
+            </div>
+        </article>
+        </div>
+
+        <div id="article-4" class="article">
+        <article>
+            <img src="lembing.jpeg" alt="Gambar Artikel 1" class="gamm">
+            <div>
+                <h2>Lempar Lembing</h2>
+                <p>Lempar lembing atau javelin throw merupakan cabang dari olahraga atletik yang memusatkan pada kekuatan otot lengan untuk melemparkan lembing atau sejenis tombak dengan material ringan dan ujung logam. Tujuan dari olahraga ini adalah untuk melemparkan lembing sejauh mungkin. 
+                Sebelum mempraktikkannya, ada sejumlah teknik dan aturan yang perlu Anda perhatikan saat melakukan olahraga ini.</p>
+                <p>Lempar lembing diyakini sudah diperkenalkan selama ajang Olimpiade Kuno sebagai bagian dari pentathlon pada 708 SM. Selanjutnya, olahraga melempar ini kembali muncul di Jerman dan Swedia pada tahun 1870-an. Hingga pada akhirnya menjadi bagian dari cabang olahraga atletik Olimpiade modern sejak 1908 untuk pria dan 1932 untuk wanita.</p>
+
+                 <h4 class="judulsub">A.  Teknik Dasar Lempar Lembing</h4>
+                 <p class="isisubbab">Lempar lembing merupakan salah satu cabang olahraga atletik yang sangat mengutamakan gerakan dan kekuatan otot lengan, sehingga Anda perlu melakukannya dengan teknik yang benar untuk menghindari cedera. Setiap kali Anda memulai sesi latihan, pastikan selalu melakukan pemanasan dengan meregangkan lengan dan bahu secara menyeluruh.
+                    Teknik dasar lempar lembing setidaknya terdiri dari tiga bagian, yakni teknik memegang lembing, teknik berlari dan membawa lembing, serta teknik melempar lembing.
+                 </p>
+                 <p class="judulsubbab"> - Teknik Memegang Lembing -</p>
+                 <p class="isisubbab">Ada tiga gaya pegangan lempar lembing yang berbeda, yakni gaya Amerika, gaya Finlandia, dan gaya penjepit atau tang. Apabila baru memulai olahraga ini, cobalah setiap gaya dalam memegang lembing untuk menemukan yang paling cocok untuk Anda.</p>
+                 <ol>
+                    <li><strong>Gaya Amerika (American grip).</strong> Teknik pegangan paling umum yang bisa Anda lakukan dengan memegang lembing dengan bagian tali di antara ibu jari dan jari telunjuk. Telapak tangan dan sisa jari lainnya menggenggam seperti biasa.</li>
+                    <li><strong>Gaya Finlandia (Finnish grip).</strong> Hampir mirip seperti gaya Amerika, namun Anda perlu mengulur jari telunjuk agak ke belakang untuk kontrol. Sementara untuk mencengkram bagian tali Anda lakukan dengan ibu jari dan jari tengah.</li>
+                    <li><strong>Gaya penjepit (V-grip).</strong> Biasa disebut sebagai gaya tang, karena Anda akan menjepit lembing di antara jari telunjuk dan jari tengah. Sementara, ibu jari, jari manis, dan jari kelingking memegang santai lembing.</li>
+                </ol>
+
+                <p class="judulsubbab"> - Teknik Membawa lembing -</p>
+                <ol>
+                    <li>Mulailah dengan memegang lembing di atas bahu, dengan posisi siku harus mengarah ke depan. Kemudian arahkan ujung lembing ke arah area lemparan dengan kemiringan sekitar 40 derajat.</li>
+                    <li>Saat melakukan langkah pertama, posisikan pinggul Anda tegak lurus dengan area target. Pemula umumnya akan mengambil 10 kali langkah lari sebelum melempar, sementara atlet bisa melakukan 13 hingga 18 kali langkah.</li>
+                    <li>Selama berlari, pastikan Anda pertahankan posisi lembing seperti pada gerakan awal.</li>
+                    <li>Jika telah mencapai langkah terakhir, putar kaki yang berlawanan dengan tangan Anda yang memegang lembing dan arahkan pinggul ke target Anda.</li>
+                    <li>Lakukan gerakan kaki menyilang, sambil menarik lembing ke belakang. Posisikan badan condong ke belakang sambil meluruskan lengan dan bahu untuk bersiap melempar.</li>
+                </ol>
+
+                <p class="judulsubbab"> - Teknik Melempar lembing -</p>
+                <ol>
+                    <li>Setelah meluruskan kedua lengan dan tubuh condong ke belakang, tetap pertahankan pandangan Anda ke area target.</li>
+                    <li>Gunakan kaki yang berada di depan sebagai tumpuan, lalu dorong dengan kaki Anda yang lainnya. Pindahkan berat badan Anda ke depan sambil bersiap untuk melemparkan lembing.</li>
+                    <li>Pada saat bersamaan, dorong lengan yang memegang lembing ke atas dan ke depan. Lepaskan lembing saat tangan berada di depan kaki tumpuan atau di puncaknya.</li>
+                    <li>Lempar sekuat-kuatnya dan jaga keseimbangan tubuh setelah melempar lembing.</li>
+                </ol>
+                
+                <!-- alkslakslak -->
+                <h4 class="judulsub">B.  Alat dan Lapangan Lempar Lembing</h4>
+                <p class="isisubbab">International Association of Athletics Federations (IAAF) menentukan sejumlah aturan terkait peralatan lembing dan lapangan pertandingan pada Olimpiade dan turnamen atletik lainnya. Beberapa peraturan lempar lembing tersebut antara lain sebagai berikut.</p>
+                <ol>
+                    <li><strong>Spesifikasi lembing.</strong> Lembing merupakan tombak dari kayu atau logam dengan ujung logam yang tajam, serta sebuah pegangan tali padanya. Bobot lembing setidaknya 800 gram dengan panjang 2,6-2,7 m untuk pria dan bobot minimal 600 gram dengan panjang 2,2-2,3 m untuk wanita. </li>
+                    <li><strong>Landasan lempar lembing.</strong> Tempat untuk melakukan awalan minimal berjarak 30 m, tetapi pada beberapa kondisi panjang bisa menjadi 36,5 m. Lebar landasan adalah 4 m, dengan lengkungan lemparan yang berupa garis memiliki radius 8 m sebagai batas akhir sebelum melemparkan lembing.</li>
+                    <li><strong> pendaratan lembing.</strong> Sektor pendaratan ditandai dengan busur pada lapangan rumput dengan sudut 28,96 derajat.</li>
+                </ol>
+
+                <h4 class="judulsub">C.  Aturan Lempar Lembing</h4>
+                <p class="isisubbab">Selain menentukan peralatan dan area lapangan pertandingan, IAAF juga menentukan cara perhitungan dan sejumlah larangan bagi atlet lempar lembing.</p>
+                <ol>
+                    <li>Tidak diperbolehkan menggunakan taping untuk merekatkan dua atau lebih jari yang membantu atlet dalam melempar, termasuk untuk penggunaan sarung tangan.</li>
+                    <li>Setiap atlet hanya memiliki waktu satu menit untuk melakukan lemparan. Jika mencapai 15 detik terakhir dan atlet belum melempar, wasit akan mengibarkan bendera kuning sebagai peringatan. Jika melebihi batas waktu, poin atlet tidak akan dihitung.</li>
+                    <li>Selama melakukan ancang-ancang, atlet harus tetap berada dalam area landasan. Dilarang untuk menyentuh sela-sela atau tanah yang berada di luar landasan.</li>
+                    <li>Atlet harus melempar lembing ke bagian atas lengan lempar dan tidak boleh melewati garis batas lengkungan lemparan.</li>
+                    <li>Pelanggaran terjadi jika pelempar berputar sepenuhnya sehingga bagian punggung mengarah ke area pendaratan lembing. Atlet tidak boleh memutar badan pada tahap apapun sampai lemparan dan pendaratan selesai.</li>
+                    <li>Lembing harus mendarat dalam area pendaratan dan hanya perlu membuat tanda pada permukaan tanah, tidak perlu hingga menempel atau melubangi rumput.</li>
+                    <li>Atlet umumnya akan melakukan tiga kali percobaan melempar lembing dalam sebuah kompetisi. Pada beberapa kasus, atlet bisa melakukan hingga enam kali percobaan.</li>
+                    <li>Wasit akan menentukan pemenang dengan kriteria lemparan yang  sah dan memperoleh jarak terjauh.</li>
+                    <li>Jika terdapat seri, kedua atlet akan melakukan sekali percobaan lagi. Atlet yang mendapat lemparan terbaik pada percobaan ini keluar sebagai pemenang. </li>
+                </ol>
+                
+            
+            </div>
+        </article>
+        </div>
+
+
+
+    </main>
+    <button id="backButton" class="back-button" onclick="goBack()">Kembali</button>
+    <button id="skipButton" class="skip-button">Skip</button>
+
+    <aside>
+        <h2>Tentang Kami</h2>
+        <ul>
+            <li><a href="https://www.instagram.com/adit_aj1/">Instagram</a></li>
+            <li><a href="https://youtube.com/@deltaayt2412?si=IaJ-gpqWdV7qM4eJ">Youtube</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </aside>
+
+    <footer>
+        <p>&copy; 2023 Deltaa Sport. Olahraga bro biar sehat.</p>
+    </footer>
+</body>
+
+</html>

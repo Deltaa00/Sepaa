@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Deltaa Sport</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-size: cover;
+            line-height: 1.6;
+            background-image: url(pexels-furknsaglam-3131405.jpg);
+        }
+
+        header {
+            height: 300px; /* Adjust the height as needed */
+            background: url(pexels-pixabay-163444.jpg) center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #1e1918;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        article {
+            display: flex;
+            margin-bottom: 2em;
+            backdrop-filter: blur(7px);
+            background-color: transparent;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensure consistent article height */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        article img {
+            width: 30%;
+            height: auto;
+            border-radius: 8px 0 0 8px;
+        }
+
+        article div {
+            flex: 1;
+            padding: 1.5em;
+        }
+
+        article h2 {
+            color: #ffffff;
+            font-size: 1.8em;
+            margin-bottom: 0.5em;
+        }
+
+        article p {
+            color: rgb(255, 255, 255);
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+            word-wrap: break-word;
+        }
+
+        aside {
+            width: 50%;
+            background-color: #333;
+            color: #fff;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-bottom: 10px;
+            margin-left: 35px;
+            background-image: url('wallpaperflare.com_wallpaper (8).jpg');
+        }
+
+        aside a{
+            text-decoration: none;
+            color: white;
+        }
+        aside a:hover{
+            text-decoration: none;
+            color: yellow;
+        }
+
+        footer {
+            background: #1e1918;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        
+
+@media only screen and (max-width: 480px) {
+    article {
+        display: block; /* Change from flex to block for smaller screens */
+        margin-bottom: 1em; /* Adjust margin as needed */
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    article img {
+        width: 100%; /* Set image width to 100% for smaller screens */
+        height: auto;
+        border-radius: 8px 8px 0 0; /* Adjust border-radius as needed */
+    }
+
+    article div {
+        padding: 1em;
+    }
+
+    article h2 {
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 0.5em;
+    }
+
+    article p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 1.5em;
+        word-wrap: break-word;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Deltaa Sport</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Deltaa Sport</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="tentang.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <main>
+        <article>
+            <img src="voli.jpg" alt="Gambar Artikel 1">
+            <div>
+                <h2>Bola Volly</h2>
+                <p>Ditemukan oleh William G. Morgan di YMCA pada tanggal 9 Februari 1895. 
+                    Bola voli adalah olahraga tim yang dimainkan antara dua tim yang masing-masing terdiri dari enam pemain. Tujuan dari permainan ini adalah untuk mencetak skor dengan cara memasukkan bola ke dalam area lawan dan mencegah lawan untuk melakukannya.</p>
+            </div>
+        </article>
+
+        <article>
+            <img src="judo.jpg" alt="Gambar Artikel 2">
+            <div>
+                <h2>Judo</h2>
+                <p>Judo diciptakan oleh Kano Jigoro pada 1882. Judo adalah sebuah olahraga bela diri yang berasal dari Jepang. Olahraga ini didasarkan pada prinsip-prinsip pencegahan dan memanfaatkan kekuatan lawan untuk mencapai kemenangan.</p>
+            </div>
+        </article>
+
+        <article>
+            <img src="basket.jpeg" alt="Gambar Artikel 3">
+            <div>
+                <h2>Basket</h2>
+                <p>Basket mulai dimainkan 15 Desember 1891. Basketball, atau bola basket, adalah olahraga tim yang dimainkan antara dua tim yang beranggotakan masing-masing lima pemain. Permainan ini terkenal dengan kecepatan, keterampilan teknis, kerjasama tim, dan strategi taktis.</p>
+            </div>
+        </article>
+
+        <article>
+            <img src="lembing.jpeg" alt="Gambar Artikel 4">
+            <div>
+                <h2>Lempar Lembing</h2>
+                <p>Lempar lembing muncul pertama kali di Yunani pada Olimpiade Kuno. Tepatnya 708 SM. Lempar lembing adalah salah satu cabang olahraga lempar yang melibatkan lemparan sebuah lembing sejauh mungkin atau seakurat mungkin. Olahraga ini memerlukan kekuatan fisik, teknik lempar yang tepat, dan koordinasi yang baik.</p>
+            </div>
+        </article>
+    </main>
+
+    <aside>
+        <h2>Tentang Kami</h2>
+        <ul>
+            <li><a href="https://www.instagram.com/adit_aj1/">Instagram</a></li>
+            <li><a href="https://youtube.com/@deltaayt2412?si=IaJ-gpqWdV7qM4eJ">Youtube</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </aside>
+
+    <footer>
+        <p>&copy; 2023 Deltaa Sport. Olahraga bro biar sehat.</p>
+    </footer>
+</body>
+
+</html>
